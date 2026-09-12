@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Hamper Gifts | Demo Tracking</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+    background:
+        radial-gradient(circle at top left,#352713 0%,transparent 32%),
+        radial-gradient(circle at bottom right,#1d1710 0%,transparent 35%),
+        #090b0f;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* DEMO BAR */
+.demo-bar{
+    background:#19130a;
+    color:#e9bd68;
+    text-align:center;
+    padding:9px 15px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    border-bottom:1px solid rgba(212,167,80,.25);
+}
+
+/* HEADER */
+.header{
+    width:100%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(8,10,14,.82);
+    backdrop-filter:blur(16px);
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.logo{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(145deg,#f1ca79,#9b6823);
+    color:#171109;
+    font-size:23px;
+    box-shadow:0 8px 30px rgba(218,170,75,.18);
+}
+
+.brand-text h1{
+    font-size:19px;
+    letter-spacing:.3px;
+}
+
+.brand-text p{
+    color:#9da3ae;
+    font-size:12px;
+    margin-top:3px;
+}
+
+.status-pill{
+    padding:9px 14px;
+    border-radius:30px;
+    background:rgba(38,190,117,.10);
+    border:1px solid rgba(38,190,117,.25);
+    color:#4ee39a;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* MAIN */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:35px 20px 60px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.hero h2{
+    font-size:clamp(29px,5vw,48px);
+    line-height:1.1;
+    background:linear-gradient(90deg,#fff,#f0cc82,#fff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#979eaa;
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* TRACKING CARD */
+.tracking-card{
+    background:linear-gradient(145deg,rgba(28,31,38,.96),rgba(13,15,20,.96));
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:25px;
+    padding:27px;
+    box-shadow:0 25px 80px rgba(0,0,0,.42);
+    margin-bottom:22px;
+}
+
+.tracking-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding-bottom:22px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.label{
+    color:#858c98;
+    text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:1.5px;
+    margin-bottom:6px;
+}
+
+.tracking-id{
+    color:#f3cf87;
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.delivery-box{
+    text-align:right;
+}
+
+.delivery-box strong{
+    display:block;
+    color:#4ee39a;
+    font-size:15px;
+}
+
+.delivery-box span{
+    display:block;
+    color:#9299a5;
+    font-size:12px;
+    margin-top:4px;
+}
+
+/* TIMELINE */
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    margin-top:35px;
+    position:relative;
+}
+
+.timeline:before{
+    content:"";
+    position:absolute;
+    top:17px;
+    left:8%;
+    right:8%;
+    height:3px;
+    background:linear-gradient(90deg,#d4a64e 0%,#d4a64e 78%,#343943 78%);
+    z-index:0;
+}
+
+.step{
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.circle{
+    width:35px;
+    height:35px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#151920;
+    border:2px solid #3b4049;
+    color:#737984;
+    font-size:13px;
+}
+
+.step.done .circle{
+    background:linear-gradient(145deg,#e4bc6c,#9c6826);
+    border-color:#e8c778;
+    color:#15110a;
+    box-shadow:0 0 0 6px rgba(218,174,86,.08);
+}
+
+.step.active .circle{
+    background:#10251c;
+    border:2px solid #42dc91;
+    color:#42dc91;
+    box-shadow:0 0 0 6px rgba(66,220,145,.08);
+}
+
+.step-title{
+    margin-top:12px;
+    font-size:12px;
+    font-weight:700;
+    color:#e4e6ea;
+}
+
+.step-date{
+    margin-top:4px;
+    font-size:10px;
+    color:#777e89;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+/* INFO CARD */
+.info-card{
+    background:rgba(20,23,29,.92);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:24px;
+}
+
+.card-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+}
+
+.card-icon{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:rgba(220,176,84,.10);
+    border:1px solid rgba(220,176,84,.20);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#e5bc70;
+}
+
+.card-title h3{
+    font-size:16px;
+}
+
+.card-title p{
+    font-size:11px;
+    color:#777e89;
+    margin-top:3px;
+}
+
+.detail{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:13px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.detail:last-child{
+    border-bottom:0;
+}
+
+.detail span:first-child{
+    color:#7f8792;
+    font-size:12px;
+}
+
+.detail span:last-child{
+    color:#f1f2f4;
+    font-size:13px;
+    font-weight:600;
+    text-align:right;
+}
+
+/* DELIVERY CARD */
+.delivery-highlight{
+    background:
+        linear-gradient(135deg,rgba(218,174,84,.13),rgba(255,255,255,.025)),
+        #15181e;
+    border:1px solid rgba(218,174,84,.20);
+}
+
+.big-status{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:17px;
+    border-radius:15px;
+    background:rgba(45,207,127,.07);
+    border:1px solid rgba(45,207,127,.15);
+    margin-bottom:18px;
+}
+
+.status-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#41dc90;
+    box-shadow:0 0 0 7px rgba(65,220,144,.10);
+}
+
+.big-status h4{
+    color:#4ce197;
+    font-size:15px;
+}
+
+.big-status p{
+    color:#858d98;
+    font-size:11px;
+    margin-top:3px;
+}
+
+.delivery-date{
+    text-align:center;
+    padding:20px 10px;
+    border-radius:17px;
+    background:rgba(255,255,255,.035);
+}
+
+.delivery-date .date{
+    color:#f2cd82;
+    font-size:26px;
+    font-weight:800;
+}
+
+.delivery-date .time{
+    margin-top:5px;
+    color:#d7dbe1;
+    font-size:14px;
+}
+
+.note{
+    margin-top:17px;
+    color:#737b87;
+    font-size:10px;
+    line-height:1.6;
+    text-align:center;
+}
+
+/* FOOTER */
+.footer{
+    max-width:1100px;
+    margin:5px auto 0;
+    padding:22px 20px 35px;
+    text-align:center;
+    color:#626975;
+    font-size:11px;
+}
+
+.footer strong{
+    color:#a28a5c;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .header-inner{
+        padding:15px;
+    }
+
+    .brand-text h1{
+        font-size:16px;
+    }
+
+    .status-pill{
+        display:none;
+    }
+
+    .container{
+        padding:28px 14px 45px;
+    }
+
+    .tracking-card{
+        padding:19px;
+        border-radius:20px;
+    }
+
+    .tracking-top{
+        display:block;
+    }
+
+    .delivery-box{
+        text-align:left;
+        margin-top:15px;
+    }
+
+    .tracking-id{
+        font-size:18px;
+    }
+
+    .timeline{
+        grid-template-columns:1fr;
+        gap:22px;
+        margin-top:28px;
+    }
+
+    .timeline:before{
+        top:17px;
+        bottom:17px;
+        left:17px;
+        width:3px;
+        height:auto;
+        right:auto;
+        background:linear-gradient(180deg,#d4a64e 0%,#d4a64e 78%,#343943 78%);
+    }
+
+    .step{
+        display:flex;
+        align-items:center;
+        text-align:left;
+        gap:15px;
+    }
+
+    .circle{
+        margin:0;
+        min-width:35px;
+    }
+
+    .step-info{
+        margin-left:0;
+    }
+
+    .step-title{
+        margin-top:0;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .detail{
+        align-items:flex-start;
+    }
+
+    .detail span:last-child{
+        max-width:58%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo-bar">
+    DEMO TRACKING • FOR DISPLAY / TESTING PURPOSES ONLY
+</div>
+
+<header class="header">
+    <div class="header-inner">
+
+        <div class="brand">
+            <div class="logo">🎁</div>
+
+            <div class="brand-text">
+                <h1>Premium Hamper Gifts</h1>
+                <p>Luxury Gifts & Premium Hampers</p>
+            </div>
+        </div>
+
+        <div class="status-pill">
+            ● TRACKING ACTIVE
+        </div>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+        <h2>Track Your Gift</h2>
+        <p>Real-time style demo tracking information for your Premium Hamper Gifts order.</p>
+    </section>
+
+
+    <!-- TRACKING -->
+    <section class="tracking-card">
+
+        <div class="tracking-top">
+
+            <div>
+                <div class="label">Tracking ID</div>
+                <div class="tracking-id">PHG-260913-720994</div>
+            </div>
+
+            <div class="delivery-box">
+                <strong>● Out for Delivery</strong>
+                <span>Delivery scheduled for tomorrow</span>
+            </div>
+
+        </div>
+
+
+        <!-- TIMELINE -->
+        <div class="timeline">
+
+            <div class="step done">
+                <div class="circle">✓</div>
+                <div class="step-info">
+                    <div class="step-title">Order Confirmed</div>
+                    <div class="step-date">Completed</div>
+                </div>
+            </div>
+
+            <div class="step done">
+                <div class="circle">✓</div>
+                <div class="step-info">
+                    <div class="step-title">Packed</div>
+                    <div class="step-date">Completed</div>
+                </div>
+            </div>
+
+            <div class="step done">
+                <div class="circle">✓</div>
+                <div class="step-info">
+                    <div class="step-title">Dispatched</div>
+                    <div class="step-date">Completed</div>
+                </div>
+            </div>
+
+            <div class="step done">
+                <div class="circle">✓</div>
+                <div class="step-info">
+                    <div class="step-title">In Transit</div>
+                    <div class="step-date">Completed</div>
+                </div>
+            </div>
+
+            <div class="step active">
+                <div class="circle">●</div>
+                <div class="step-info">
+                    <div class="step-title">Out for Delivery</div>
+                    <div class="step-date">Current Status</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="grid">
+
+        <!-- CUSTOMER -->
+        <div class="info-card">
+
+            <div class="card-title">
+                <div class="card-icon">👤</div>
+
+                <div>
+                    <h3>Customer Details</h3>
+                    <p>Recipient information</p>
+                </div>
+            </div>
+
+            <div class="detail">
+                <span>Customer Name</span>
+                <span>Dhananjay Kumar</span>
+            </div>
+
+            <div class="detail">
+                <span>Mobile Number</span>
+                <span>7209948010</span>
+            </div>
+
+            <div class="detail">
+                <span>Signature</span>
+                <span>Riya Kumari</span>
+            </div>
+
+        </div>
+
+
+        <!-- ADDRESS -->
+        <div class="info-card">
+
+            <div class="card-title">
+                <div class="card-icon">📍</div>
+
+                <div>
+                    <h3>Delivery Address</h3>
+                    <p>Shipping destination</p>
+                </div>
+            </div>
+
+            <div class="detail">
+                <span>Street / Area</span>
+                <span>Giddha Sati Mai</span>
+            </div>
+
+            <div class="detail">
+                <span>Landmark</span>
+                <span>Giddha</span>
+            </div>
+
+            <div class="detail">
+                <span>City</span>
+                <span>Ara</span>
+            </div>
+
+            <div class="detail">
+                <span>State</span>
+                <span>Bihar</span>
+            </div>
+
+            <div class="detail">
+                <span>PIN Code</span>
+                <span>802314</span>
+            </div>
+
+            <div class="detail">
+                <span>Country</span>
+                <span>India</span>
+            </div>
+
+        </div>
+
+
+        <!-- DELIVERY -->
+        <div class="info-card delivery-highlight">
+
+            <div class="card-title">
+                <div class="card-icon">🚚</div>
+
+                <div>
+                    <h3>Delivery Information</h3>
+                    <p>Expected delivery schedule</p>
+                </div>
+            </div>
+
+            <div class="big-status">
+                <div class="status-dot"></div>
+
+                <div>
+                    <h4>Out for Delivery</h4>
+                    <p>Your parcel is scheduled for delivery.</p>
+                </div>
+            </div>
+
+            <div class="delivery-date">
+                <div class="label">Expected Delivery</div>
+                <div class="date">13 September 2026</div>
+                <div class="time">3:00 PM — 4:00 PM</div>
+            </div>
+
+            <div class="note">
+                Delivery timing shown here is a demo schedule and is
+                not a courier-company confirmation.
+            </div>
+
+        </div>
+
+
+        <!-- STORE -->
+        <div class="info-card">
+
+            <div class="card-title">
+                <div class="card-icon">🎁</div>
+
+                <div>
+                    <h3>Store Information</h3>
+                    <p>Order source</p>
+                </div>
+            </div>
+
+            <div class="detail">
+                <span>Store Name</span>
+                <span>Premium Hamper Gifts</span>
+            </div>
+
+            <div class="detail">
+                <span>Tracking Type</span>
+                <span>Gift Delivery</span>
+            </div>
+
+            <div class="detail">
+                <span>Shipment Status</span>
+                <span style="color:#4ee39a;">Active</span>
+            </div>
+
+            <div class="detail">
+                <span>Tracking ID</span>
+                <span>PHG-260913-720994</span>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+    <strong>Premium Hamper Gifts</strong> • Luxury Gifts & Premium Hampers
+    <br><br>
+    Demo tracking interface — not an official courier tracking system.
+</footer>
+
+</body>
+                  </html>
